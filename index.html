@@ -19,7 +19,7 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, sans-serif;
       background-color: var(--cream);
       color: #333;
       line-height: 1.6;
@@ -94,10 +94,6 @@
       margin-bottom: 1rem;
     }
 
-    .hero-badge span {
-      font-size: 1.1rem;
-    }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -154,32 +150,6 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
     }
 
-    .hero-paw::before,
-    .hero-paw::after {
-      content: "";
-      position: absolute;
-      background-color: var(--cream);
-      border-radius: 50%;
-    }
-
-    .hero-paw::before {
-      width: 40px;
-      height: 40px;
-      top: -10px;
-      left: 10px;
-      box-shadow:
-        50px 5px 0 0 var(--cream),
-        25px -20px 0 0 var(--cream);
-    }
-
-    .hero-paw::after {
-      width: 55px;
-      height: 55px;
-      bottom: 10px;
-      right: 10px;
-      opacity: 0.4;
-    }
-
     .hero-tagline {
       position: absolute;
       bottom: 1.2rem;
@@ -217,27 +187,6 @@
       border-top: 4px solid var(--sage);
     }
 
-    .service-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: var(--brown);
-    }
-
-    .service-card p {
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .service-tag {
-      display: inline-block;
-      font-size: 0.8rem;
-      background-color: var(--cream);
-      color: var(--brown);
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      margin-top: 0.3rem;
-    }
-
     .about {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -253,11 +202,6 @@
       font-size: 0.95rem;
     }
 
-    .about-highlight strong {
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
     .location-card {
       background-color: #fff;
       border-radius: 14px;
@@ -265,17 +209,6 @@
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
       border-left: 4px solid var(--golden);
       font-size: 0.95rem;
-    }
-
-    .location-card p {
-      margin-bottom: 0.4rem;
-    }
-
-    .location-card span {
-      display: inline-block;
-      margin-top: 0.4rem;
-      font-size: 0.85rem;
-      color: var(--brown);
     }
 
     .contact-grid {
@@ -326,24 +259,6 @@
       font-size: 0.95rem;
     }
 
-    .contact-info h3 {
-      margin-bottom: 0.7rem;
-      font-size: 1.1rem;
-    }
-
-    .contact-info p {
-      margin-bottom: 0.4rem;
-    }
-
-    .hours-list {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-
-    .hours-list li {
-      font-size: 0.9rem;
-    }
-
     footer {
       background-color: var(--brown);
       color: #fff;
@@ -359,34 +274,6 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.85rem;
-    }
-
-    .footer-inner a {
-      color: #F5E6D3;
-      text-decoration: none;
-    }
-
-    .footer-inner a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .about,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        position: static;
-      }
-
-      nav {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -420,6 +307,7 @@
           <a href="#services" class="btn-outline">View grooming services</a>
         </div>
       </div>
+
       <div class="hero-image">
         <div class="hero-paw"></div>
         <div class="hero-tagline">Calm, kind, and local—right here in Eden, NC.</div>
@@ -431,26 +319,26 @@
       <p style="margin-bottom: 1.5rem;">
         Whether your pet needs a quick tidy-up or the full spa treatment, we’ve got a package that fits.
       </p>
+
       <div class="services-grid">
         <div class="service-card">
           <h3>Fresh & Fluffy Bath</h3>
-          <p>Warm bath, gentle shampoo, blow-dry, brush-out, and nail trim for a clean, comfy coat.</p>
-          <span class="service-tag">Perfect for regular upkeep</span>
+          <p>Warm bath, gentle shampoo, blow-dry, brush-out, and nail trim.</p>
         </div>
+
         <div class="service-card">
           <h3>Full Groom</h3>
-          <p>Bath, haircut or breed-style trim, paw and sanitary trim, ear cleaning, and nail care.</p>
-          <span class="service-tag">Ideal for long-haired breeds</span>
+          <p>Bath, haircut or breed-style trim, paw trim, ear cleaning, nail care.</p>
         </div>
+
         <div class="service-card">
           <h3>Puppy Intro Visit</h3>
-          <p>Short, gentle session to help puppies get used to grooming with lots of patience and treats.</p>
-          <span class="service-tag">Low-stress first experience</span>
+          <p>Short, gentle session to help puppies get used to grooming.</p>
         </div>
+
         <div class="service-card">
           <h3>Shed Control Treatment</h3>
-          <p>Deshedding bath and brush-out to help reduce loose fur around your home.</p>
-          <span class="service-tag">Great for double-coated dogs</span>
+          <p>Deshedding bath and brush-out to reduce loose fur.</p>
         </div>
       </div>
     </section>
@@ -460,21 +348,17 @@
       <div class="about">
         <div>
           <p style="margin-bottom: 1rem;">
-            We’re a small, locally owned grooming studio serving Eden, NC and surrounding communities.
-            Our focus is on low-stress, one-on-one grooming so your pet never feels rushed or overwhelmed.
-          </p>
-          <p>
-            We schedule fewer pets per day to keep the environment calm and quiet. That means more time
-            for gentle handling, breaks when needed, and a grooming experience tailored to your pet’s age,
-            health, and personality.
+            We’re a small, locally owned grooming studio serving Eden, NC. Our focus is on low-stress,
+            one-on-one grooming so your pet never feels rushed or overwhelmed.
           </p>
         </div>
+
         <div class="about-highlight">
           <strong>Why local pet parents choose us:</strong>
           • Fear-free, patient grooming<br />
           • Clean, cozy studio environment<br />
-          • Transparent communication and pickup times<br />
-          • Proudly serving Eden, NC and nearby neighborhoods
+          • Transparent communication<br />
+          • Proudly serving Eden, NC
         </div>
       </div>
     </section>
@@ -483,41 +367,50 @@
       <h2>Our Eden, NC location</h2>
       <div class="location-card">
         <p><strong>Address:</strong> 704 Osborne St, Eden, NC 27288</p>
-        <p><strong>Parking:</strong> Easy, free parking right in front of the studio.</p>
-        <p><strong>Nearby:</strong> Convenient to downtown Eden and local neighborhoods.</p>
-        <span>Call or message us for detailed directions before your first visit.</span>
+        <p><strong>Parking:</strong> Free parking in front of the studio.</p>
+        <p><strong>Nearby:</strong> Close to downtown Eden.</p>
       </div>
     </section>
 
     <section id="contact">
       <h2>Book a grooming appointment</h2>
       <div class="contact-grid">
-        <form>
+
+        <!-- FORM WITH SUBMIT ACTION + REDIRECT -->
+        <form action="https://formspree.io/f/xbdvnjod" method="POST">
           <div class="form-row">
             <label for="name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Doe" />
+            <input type="text" id="name" name="name" required />
           </div>
+
           <div class="form-row">
             <label for="pet-name">Pet’s name</label>
-            <input type="text" id="pet-name" name="pet-name" placeholder="Buddy" />
+            <input type="text" id="pet-name" name="pet-name" required />
           </div>
+
           <div class="form-row">
             <label for="pet-type">Pet type</label>
-            <select id="pet-type" name="pet-type">
+            <select id="pet-type" name="pet-type" required>
               <option value="">Select one</option>
               <option>Dog</option>
               <option>Cat</option>
               <option>Other</option>
             </select>
           </div>
+
           <div class="form-row">
             <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+1 (786) 641-3162" />
+            <input type="tel" id="phone" name="phone" placeholder="(786) 508-3200" required />
           </div>
+
           <div class="form-row">
             <label for="message">Preferred date/time & notes</label>
-            <textarea id="message" name="message" placeholder="Tell us what your pet needs, and when you’d like to come in."></textarea>
+            <textarea id="message" name="message" required></textarea>
           </div>
+
+          <input type="hidden" name="_subject" value="New Holly & Bloom grooming request">
+          <input type="hidden" name="_redirect" value="request-sent.html">
+
           <button type="submit" class="btn-primary">Send request</button>
         </form>
 
@@ -535,3 +428,21 @@
             <li>Sat: 1PM – 10PM</li>
             <li>Sun: Closed</li>
           </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Holly & Bloom – Eden, NC</div>
+      <div><a href="#contact">Request an appointment</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

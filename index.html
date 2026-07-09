@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Holly & Bloom – Pet Grooming in Eden, NC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     :root {
       --sage: #A8B89A;
@@ -25,13 +26,14 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
     header {
       background: linear-gradient(135deg, var(--sage), var(--golden));
       color: #fff;
-      padding: 1.5rem 2rem;
+      padding: 1.2rem 1.5rem;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
     }
 
     .nav-container {
@@ -43,55 +45,87 @@
     }
 
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 1.5rem;
       font-size: 0.95rem;
       text-transform: uppercase;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    /* MOBILE MENU */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
     }
 
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: var(--sage);
+        padding: 1rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+      }
+
+      nav a {
+        padding: 0.5rem 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* HERO */
     .hero {
       max-width: 1100px;
-      margin: 2.5rem auto;
-      padding: 2rem;
+      margin: 2rem auto;
+      padding: 1.5rem;
       background-color: rgba(245, 230, 211, 0.9);
       border-radius: 18px;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: 1.2fr 1fr;
       gap: 2rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
     }
 
-    .hero-text h1 {
-      font-size: 2.4rem;
-      color: var(--brown);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-text p {
-      margin-bottom: 1.5rem;
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
     }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
       background-color: var(--sage);
       color: #fff;
       padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
     }
 
     .hero-actions {
@@ -100,34 +134,28 @@
       gap: 0.75rem;
     }
 
+    @media (max-width: 800px) {
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
     .btn-primary {
       background-color: var(--brown);
       color: #fff;
-      border: none;
       padding: 0.8rem 1.4rem;
       border-radius: 999px;
-      font-size: 0.95rem;
-      cursor: pointer;
       text-decoration: none;
-    }
-
-    .btn-primary:hover {
-      background-color: #6f5746;
+      font-size: 0.95rem;
     }
 
     .btn-outline {
       border: 1px solid var(--brown);
       color: var(--brown);
-      background: transparent;
       padding: 0.8rem 1.4rem;
       border-radius: 999px;
-      font-size: 0.95rem;
-      cursor: pointer;
       text-decoration: none;
-    }
-
-    .btn-outline:hover {
-      background-color: rgba(139, 111, 90, 0.08);
+      font-size: 0.95rem;
     }
 
     .hero-image {
@@ -135,36 +163,22 @@
       border-radius: 18px;
       padding: 1.5rem;
       display: flex;
-      align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
+      align-items: center;
     }
 
     .hero-paw {
       width: 140px;
       height: 140px;
-      border-radius: 50%;
       background-color: var(--golden);
-      position: relative;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      border-radius: 50%;
     }
 
-    .hero-tagline {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 1.5rem;
-      background-color: rgba(245, 230, 211, 0.9);
-      padding: 0.5rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      color: var(--brown);
-    }
-
+    /* SECTIONS */
     section {
       max-width: 1100px;
       margin: 0 auto 2.5rem auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
 
     section h2 {
@@ -173,6 +187,7 @@
       margin-bottom: 1rem;
     }
 
+    /* SERVICES */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -181,17 +196,23 @@
 
     .service-card {
       background-color: #fff;
-      border-radius: 14px;
       padding: 1.3rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      border-radius: 14px;
       border-top: 4px solid var(--sage);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
     }
 
+    /* ABOUT */
     .about {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
     }
 
     .about-highlight {
@@ -199,22 +220,28 @@
       color: #fff;
       padding: 1.2rem;
       border-radius: 14px;
-      font-size: 0.95rem;
     }
 
+    /* LOCATION */
     .location-card {
       background-color: #fff;
-      border-radius: 14px;
       padding: 1.3rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      border-radius: 14px;
       border-left: 4px solid var(--golden);
-      font-size: 0.95rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
     }
 
+    /* CONTACT */
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     form {
@@ -228,27 +255,18 @@
       margin-bottom: 1rem;
     }
 
-    label {
-      display: block;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      color: var(--brown);
-    }
-
     input,
     textarea,
     select {
       width: 100%;
-      padding: 0.6rem 0.7rem;
+      padding: 0.7rem;
       border-radius: 8px;
       border: 1px solid #d0c4b5;
-      font-size: 0.9rem;
-      font-family: inherit;
+      font-size: 1rem;
     }
 
     textarea {
       min-height: 90px;
-      resize: vertical;
     }
 
     .contact-info {
@@ -256,13 +274,13 @@
       color: #fff;
       padding: 1.5rem;
       border-radius: 14px;
-      font-size: 0.95rem;
     }
 
+    /* FOOTER */
     footer {
       background-color: var(--brown);
       color: #fff;
-      padding: 1.2rem 2rem;
+      padding: 1.2rem 1.5rem;
       margin-top: 2rem;
     }
 
@@ -270,18 +288,22 @@
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
       font-size: 0.85rem;
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <div class="nav-container">
       <div class="logo">Holly & Bloom</div>
-      <nav>
+
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+      <nav id="mobileMenu">
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#location">Location</a>
@@ -291,34 +313,35 @@
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
         <div class="hero-badge">
           <span>🐾</span> Eden, NC’s cozy pet spa
         </div>
+
         <h1>Gentle grooming for happy pets.</h1>
+
         <p>
-          At Holly & Bloom in Eden, North Carolina, we treat every dog and cat like family.
-          From soothing baths to stylish trims, your pet enjoys a calm, caring experience—so they leave
-          looking and feeling their best.
+          At Holly & Bloom, we treat every dog and cat like family. Your pet enjoys a calm,
+          caring experience—so they leave looking and feeling their best.
         </p>
+
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Request an appointment</a>
-          <a href="#services" class="btn-outline">View grooming services</a>
+          <a href="#services" class="btn-outline">View services</a>
         </div>
       </div>
 
       <div class="hero-image">
         <div class="hero-paw"></div>
-        <div class="hero-tagline">Calm, kind, and local—right here in Eden, NC.</div>
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services">
       <h2>Grooming services</h2>
-      <p style="margin-bottom: 1.5rem;">
-        Whether your pet needs a quick tidy-up or the full spa treatment, we’ve got a package that fits.
-      </p>
 
       <div class="services-grid">
         <div class="service-card">
@@ -343,28 +366,32 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <h2>About Holly & Bloom</h2>
+
       <div class="about">
         <div>
-          <p style="margin-bottom: 1rem;">
-            We’re a small, locally owned grooming studio serving Eden, NC. Our focus is on low-stress,
-            one-on-one grooming so your pet never feels rushed or overwhelmed.
+          <p>
+            Holly & Bloom is a small, locally owned grooming studio serving Eden, NC.
+            We specialize in low-stress, one-on-one grooming so your pet never feels rushed.
           </p>
         </div>
 
         <div class="about-highlight">
-          <strong>Why local pet parents choose us:</strong>
-          • Fear-free, patient grooming<br />
-          • Clean, cozy studio environment<br />
+          <strong>Why pet parents choose us:</strong>
+          • Fear-free grooming<br />
+          • Clean, cozy studio<br />
           • Transparent communication<br />
           • Proudly serving Eden, NC
         </div>
       </div>
     </section>
 
+    <!-- LOCATION -->
     <section id="location">
       <h2>Our Eden, NC location</h2>
+
       <div class="location-card">
         <p><strong>Address:</strong> 704 Osborne St, Eden, NC 27288</p>
         <p><strong>Parking:</strong> Free parking in front of the studio.</p>
@@ -372,40 +399,37 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <h2>Book a grooming appointment</h2>
+
       <div class="contact-grid">
 
-        <!-- FORM WITH SUBMIT ACTION + REDIRECT -->
+        <!-- FORM WITH ACTION + REDIRECT -->
         <form action="https://formspree.io/f/xbdvnjod" method="POST">
           <div class="form-row">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" required />
+            <label>Your name</label>
+            <input type="text" name="name" placeholder="Jane Doe" required />
           </div>
 
           <div class="form-row">
-            <label for="pet-name">Pet’s name</label>
-            <input type="text" id="pet-name" name="pet-name" required />
+            <label>Pet’s name</label>
+            <input type="text" name="pet-name" placeholder="Holly Cooper" required />
           </div>
 
           <div class="form-row">
-            <label for="pet-type">Pet type</label>
-            <select id="pet-type" name="pet-type" required>
-              <option value="">Select one</option>
-              <option>Dog</option>
-              <option>Cat</option>
-              <option>Other</option>
-            </select>
+            <label>Pet Breed</label>
+            <input type="text" name="pet-breed" placeholder="Shih Tzu" required />
           </div>
 
           <div class="form-row">
-            <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(786) 508-3200" required />
+            <label>Phone number</label>
+            <input type="tel" name="phone" placeholder="(xxx) xxx-xxxx" required />
           </div>
 
           <div class="form-row">
-            <label for="message">Preferred date/time & notes</label>
-            <textarea id="message" name="message" required></textarea>
+            <label>Preferred date/time & notes</label>
+            <textarea name="message" placeholder="Something we should know..." required></textarea>
           </div>
 
           <input type="hidden" name="_subject" value="New Holly & Bloom grooming request">
@@ -418,8 +442,9 @@
           <h3>Contact & hours</h3>
           <p><strong>Phone:</strong> +1 (786) 508‑3200</p>
           <p><strong>Email:</strong> hollyandbloom@gmail.com</p>
+
           <p><strong>Hours:</strong></p>
-          <ul class="hours-list">
+          <ul>
             <li>Mon: 4PM – 10PM</li>
             <li>Tue: Closed</li>
             <li>Wed: 4PM – 10PM</li>
@@ -432,17 +457,23 @@
 
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="footer-inner">
-      <div>© <span id="year"></span> Holly & Bloom – Eden, NC</div>
-      <div><a href="#contact">Request an appointment</a></div>
+      <div> Holly & Bloom – Eden, NC</div>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
   </script>
+
 </body>
 </html>

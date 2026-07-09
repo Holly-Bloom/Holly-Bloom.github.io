@@ -1,28 +1,553 @@
-<html>
-<!-- Text between angle brackets is an HTML tag and is not displayed.
-Most tags, such as the HTML and /HTML tags that surround the contents of
-a page, come in pairs; some tags, like HR, for a horizontal rule, stand 
-alone. Comments, such as the text you're reading, are not displayed when
-the Web page is shown. The information between the HEAD and /HEAD tags is 
-not displayed. The information between the BODY and /BODY tags is displayed.-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Enter a title, displayed at the top of the window.</title>
+  <meta charset="UTF-8" />
+  <title>Paws & Whiskers Grooming – Eden, NC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --sage: #A8B89A;
+      --cream: #F5E6D3;
+      --golden: #C9A45C;
+      --brown: #8B6F5A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--cream);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--sage), var(--golden));
+      color: #fff;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 2rem;
+      background-color: rgba(245, 230, 211, 0.9);
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--sage);
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-badge span {
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-primary {
+      background-color: var(--brown);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #6f5746;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--brown);
+      color: var(--brown);
+      background: transparent;
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(139, 111, 90, 0.08);
+    }
+
+    .hero-image {
+      background: radial-gradient(circle at top left, var(--sage), var(--cream));
+      border-radius: 18px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-paw {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: var(--golden);
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-paw::before,
+    .hero-paw::after {
+      content: "";
+      position: absolute;
+      background-color: var(--cream);
+      border-radius: 50%;
+    }
+
+    .hero-paw::before {
+      width: 40px;
+      height: 40px;
+      top: -10px;
+      left: 10px;
+      box-shadow:
+        50px 5px 0 0 var(--cream),
+        25px -20px 0 0 var(--cream);
+    }
+
+    .hero-paw::after {
+      width: 55px;
+      height: 55px;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.4;
+    }
+
+    .hero-tagline {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.5rem;
+      background-color: rgba(245, 230, 211, 0.9);
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--brown);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem auto;
+      padding: 0 2rem;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background-color: #fff;
+      border-radius: 14px;
+      padding: 1.3rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      border-top: 4px solid var(--sage);
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--brown);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      background-color: var(--cream);
+      color: var(--brown);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-top: 0.3rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-highlight {
+      background-color: var(--sage);
+      color: #fff;
+      padding: 1.2rem;
+      border-radius: 14px;
+      font-size: 0.95rem;
+    }
+
+    .about-highlight strong {
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .location-card {
+      background-color: #fff;
+      border-radius: 14px;
+      padding: 1.3rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      border-left: 4px solid var(--golden);
+      font-size: 0.95rem;
+    }
+
+    .location-card p {
+      margin-bottom: 0.4rem;
+    }
+
+    .location-card span {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--brown);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-row {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: var(--brown);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid #d0c4b5;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-info {
+      background-color: var(--sage);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 14px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 0.7rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.4rem;
+    }
+
+    .hours-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .hours-list li {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background-color: var(--brown);
+      color: #fff;
+      padding: 1.2rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .footer-inner a {
+      color: #F5E6D3;
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        position: static;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<!-- The information between the BODY and /BODY tags is displayed.-->
 <body>
-<h1>Enter the main heading, usually the same as the title.</h1>
-<p>Be <b>bold</b> in stating your key points. Put them in a list: </p>
-<ul>
-<li>The first item in your list</li>
-<li>The second item; <i>italicize</i> key words</li>
-</ul>
-<p>Improve your image by including an image. </p>
-<p><img src="http://www.mygifs.com/CoverImage.gif" alt="A Great HTML Resource"></p>
-<p>Add a link to your favorite <a href="https://www.dummies.com/">Web site</a>.
-Break up your page with a horizontal rule or two. </p>
-<hr>
-<p>Finally, link to <a href="page2.html">another page</a> in your own Web site.</p>
-<!-- And add a copyright notice.-->
-<p>© Wiley Publishing, 2011</p>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Paws & Whiskers Grooming</div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span>🐾</span> Eden, NC’s cozy pet spa
+        </div>
+        <h1>Gentle grooming for happy pets.</h1>
+        <p>
+          At Paws & Whiskers Grooming in Eden, North Carolina, we treat every dog and cat like family.
+          From soothing baths to stylish trims, your pet enjoys a calm, caring experience—so they leave
+          looking and feeling their best.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Request an appointment</a>
+          <a href="#services" class="btn-outline">View grooming services</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-paw"></div>
+        <div class="hero-tagline">Calm, kind, and local—right here in Eden, NC.</div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Grooming services</h2>
+      <p style="margin-bottom: 1.5rem;">
+        Whether your pet needs a quick tidy-up or the full spa treatment, we’ve got a package that fits.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Fresh & Fluffy Bath</h3>
+          <p>Warm bath, gentle shampoo, blow-dry, brush-out, and nail trim for a clean, comfy coat.</p>
+          <span class="service-tag">Perfect for regular upkeep</span>
+        </div>
+        <div class="service-card">
+          <h3>Full Groom</h3>
+          <p>Bath, haircut or breed-style trim, paw and sanitary trim, ear cleaning, and nail care.</p>
+          <span class="service-tag">Ideal for long-haired breeds</span>
+        </div>
+        <div class="service-card">
+          <h3>Puppy Intro Visit</h3>
+          <p>Short, gentle session to help puppies get used to grooming with lots of patience and treats.</p>
+          <span class="service-tag">Low-stress first experience</span>
+        </div>
+        <div class="service-card">
+          <h3>Shed Control Treatment</h3>
+          <p>Deshedding bath and brush-out to help reduce loose fur around your home.</p>
+          <span class="service-tag">Great for double-coated dogs</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Paws & Whiskers</h2>
+      <div class="about">
+        <div>
+          <p style="margin-bottom: 1rem;">
+            We’re a small, locally owned grooming studio serving Eden, NC and surrounding communities.
+            Our focus is on low-stress, one-on-one grooming so your pet never feels rushed or overwhelmed.
+          </p>
+          <p>
+            We schedule fewer pets per day to keep the environment calm and quiet. That means more time
+            for gentle handling, breaks when needed, and a grooming experience tailored to your pet’s age,
+            health, and personality.
+          </p>
+        </div>
+        <div class="about-highlight">
+          <strong>Why local pet parents choose us:</strong>
+          • Fear-free, patient grooming<br />
+          • Clean, cozy studio environment<br />
+          • Transparent communication and pickup times<br />
+          • Proudly serving Eden, NC and nearby neighborhoods
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <h2>Our Eden, NC location</h2>
+      <div class="location-card">
+        <p><strong>Address:</strong> 123 Groomer Lane, Eden, NC 27288</p>
+        <p><strong>Parking:</strong> Easy, free parking right in front of the studio.</p>
+        <p><strong>Nearby:</strong> Convenient to downtown Eden and local neighborhoods.</p>
+        <span>Call or message us for detailed directions before your first visit.</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Book a grooming appointment</h2>
+      <div class="contact-grid">
+        <form>
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" />
+          </div>
+          <div class="form-row">
+            <label for="pet-name">Pet’s name</label>
+            <input type="text" id="pet-name" name="pet-name" placeholder="Buddy" />
+          </div>
+          <div class="form-row">
+            <label for="pet-type">Pet type</label>
+            <select id="pet-type" name="pet-type">
+              <option value="">Select one</option>
+              <option>Dog</option>
+              <option>Cat</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(336) 555-1234" />
+          </div>
+          <div class="form-row">
+            <label for="message">Preferred date/time & notes</label>
+            <textarea id="message" name="message" placeholder="Tell us what your pet needs, and when you’d like to come in."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send request</button>
+        </form>
+
+        <div class="contact-info">
+          <h3>Contact & hours</h3>
+          <p><strong>Phone:</strong> (336) 555-1234</p>
+          <p><strong>Email:</strong> hello@pawsandwhiskerseden.com</p>
+          <p><strong>Hours:</strong></p>
+          <ul class="hours-list">
+            <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
+            <li>Sat: 9:00 AM – 1:00 PM</li>
+            <li>Sun: Closed</li>
+          </ul>
+          <p style="margin-top: 0.7rem;">
+            Please note: All appointments are scheduled in advance. Walk-ins are limited based on availability.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Paws & Whiskers Grooming – Eden, NC</div>
+      <div><a href="#contact">Request an appointment</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
